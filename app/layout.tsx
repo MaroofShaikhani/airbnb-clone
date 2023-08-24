@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 // import { Inter } from "next/font/google";
 import { Nunito } from "next/font/google";
 import Navbar from "./components/navbar/Navbar";
+import ClientOnly from "./components/ClientOnly";
+import Modal from "./components/modals/Modal";
 
 // const inter = Inter({ subsets: ["latin"] });
 const nunito = Nunito({
@@ -18,7 +20,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
    return (
       <html lang="en">
          <body className={nunito.className}>
-            <Navbar />
+            <ClientOnly>
+               <Modal isOpen title="Login" />
+               <Navbar />
+            </ClientOnly>
             {children}
          </body>
       </html>
