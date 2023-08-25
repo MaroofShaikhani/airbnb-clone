@@ -6,6 +6,7 @@ import Navbar from "./components/navbar/Navbar";
 import ClientOnly from "./components/ClientOnly";
 import RegisterModal from "./components/modals/RegisterModal";
 import ToasterProvider from "./providers/ToasterProvider";
+import LoginModal from "./components/modals/LoginModal";
 
 // const inter = Inter({ subsets: ["latin"] });
 const nunito = Nunito({
@@ -23,6 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
          <body className={nunito.className}>
             <ClientOnly>
                <ToasterProvider />
+               <LoginModal />
                <RegisterModal />
                <Navbar />
             </ClientOnly>
