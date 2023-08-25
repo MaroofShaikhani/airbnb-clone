@@ -1,25 +1,24 @@
 "use client";
 
-import { useCallback, useState } from "react";
-import { toast } from "react-hot-toast";
 import { signIn } from "next-auth/react";
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import { FcGoogle } from "react-icons/fc";
+// import axios from "axios";
 import { AiFillGithub } from "react-icons/ai";
-import { useRouter } from "next/navigation";
-
+import { FcGoogle } from "react-icons/fc";
+import { useCallback, useState } from "react";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 import useLoginModal from "@/app/hooks/useLoginModal";
-
 import Modal from "./Modal";
-import Input from "../inputs/Input";
 import Heading from "../Heading";
+import Input from "../inputs/Input";
+import { toast } from "react-hot-toast";
 import Button from "../Button";
+import { useRouter } from "next/navigation";
 
 const LoginModal = () => {
    const router = useRouter();
-   const loginModal = useLoginModal();
    const registerModal = useRegisterModal();
+   const loginModal = useLoginModal();
    const [isLoading, setIsLoading] = useState(false);
 
    const {
@@ -54,14 +53,9 @@ const LoginModal = () => {
       });
    };
 
-   const onToggle = useCallback(() => {
-      loginModal.onClose();
-      registerModal.onOpen();
-   }, [loginModal, registerModal]);
-
    const bodyContent = (
-      <div className="flex flex-col gap-4">
-         <Heading title="Welcome back" subtitle="Login to your account!" />
+      <div className="flex flex-col gap-2">
+         <Heading title="Welcome back" subtitle="Login to your account" center />
          <Input
             id="email"
             label="Email"
@@ -73,11 +67,11 @@ const LoginModal = () => {
          <Input
             id="password"
             label="Password"
-            type="password"
             disabled={isLoading}
             register={register}
             errors={errors}
             required
+            type="password"
          />
       </div>
    );
@@ -85,36 +79,18 @@ const LoginModal = () => {
    const footerContent = (
       <div className="flex flex-col gap-4 mt-3">
          <hr />
-         <Button
-            outline
-            label="Continue with Google"
-            icon={FcGoogle}
-            onClick={() => signIn("google")}
-         />
-         <Button
-            outline
-            label="Continue with Github"
-            icon={AiFillGithub}
-            onClick={() => signIn("github")}
-         />
-         <div
-            className="
-      text-neutral-500 text-center mt-4 font-light"
-         >
-            <p>
-               First time using Airbnb?
-               <span
-                  onClick={onToggle}
-                  className="
-              text-neutral-800
-              cursor-pointer 
-              hover:underline
-            "
+         <Button outline label="Continue with Google" icon={FcGoogle} onClick={() => {}} />
+         <Button outline label="Continue with Github" icon={AiFillGithub} onClick={() => {}} />
+         <div className="text-neutral-500 text-center mt-4 font-light">
+            <div className="flex flex-row items-center gap-2 justify-center">
+               <div>First time using Airbnb?</div>
+               <div
+                  className="text-neutral-800 cursor-pointer hover:underline"
+                  onClick={loginModal.onClose}
                >
-                  {" "}
-                  Create an account
-               </span>
-            </p>
+                  Create an Account
+               </div>
+            </div>
          </div>
       </div>
    );
@@ -132,5 +108,4 @@ const LoginModal = () => {
       />
    );
 };
-
 export default LoginModal;
