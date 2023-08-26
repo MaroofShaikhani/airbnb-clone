@@ -1,15 +1,16 @@
 import { NextResponse } from "next/server";
+
 import prisma from "@/app/libs/prismadb";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 
 export async function POST(request: Request) {
-   const currentUser = getCurrentUser();
+   const currentUser = await getCurrentUser();
 
    if (!currentUser) {
       return NextResponse.error();
    }
-   const body = await request.json();
 
+   const body = await request.json();
    const {
       title,
       description,
@@ -22,6 +23,12 @@ export async function POST(request: Request) {
       price,
    } = body;
 
+   Object.keys(body).forEach((value: any) => {
+      if (!body[value]) {
+         NextResponse.error();
+      }
+   });
+
    const listing = await prisma.listing.create({
       data: {
          title,
@@ -31,9 +38,9 @@ export async function POST(request: Request) {
          roomCount,
          bathroomCount,
          guestCount,
-         locationValue: location.locationValue,
-         userId: currentUser.id,
+         locationValue: location.value,
          price: parseInt(price, 10),
+         userId: currentUser.id,
       },
    });
 
