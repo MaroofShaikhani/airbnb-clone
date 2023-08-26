@@ -19,7 +19,7 @@ import { BsSnow } from "react-icons/bs";
 import CategoryBox from "../CategoryBox";
 import { usePathname, useSearchParams } from "next/navigation";
 
-export const catecories = [
+export const categories = [
    {
       label: "Beach",
       icon: TbBeach,
@@ -111,7 +111,7 @@ const Categories = () => {
    return (
       <Container>
          <div className="pt-4 flex flex-row items-center justify-between overflow-x-auto">
-            {catecories.map((item) => (
+            {categories.map((item) => (
                <CategoryBox
                   key={item.label}
                   label={item.label}
