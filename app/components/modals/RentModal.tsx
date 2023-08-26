@@ -9,6 +9,7 @@ import CategoryInput from "../inputs/CategoryInput";
 import { FieldValues, useForm } from "react-hook-form";
 import CountrySelect from "../inputs/CountrySelect";
 import dynamic from "next/dynamic";
+import Counter from "../inputs/Counter";
 
 enum STEPS {
    CATEGORY = 0,
@@ -35,7 +36,7 @@ const RentModal = () => {
       defaultValues: {
          category: "",
          location: null,
-         guestCout: 1,
+         guestCount: 1,
          roomCount: 1,
          bathroomCount: 1,
          imgageSrc: "",
@@ -47,6 +48,9 @@ const RentModal = () => {
 
    const category = watch("category");
    const location = watch("location");
+   const guestCount = watch("guestCount");
+   const roomCount = watch("roomCount");
+   const bathroomCount = watch("bathroomCount");
 
    const Map = useMemo(() => dynamic(() => import("../Map")), [location]);
 
@@ -110,6 +114,38 @@ const RentModal = () => {
          </div>
       );
    }
+
+   if (step === STEPS.INFO) {
+      bodyContent = (
+         <div className="flex flex-col gap-8">
+            <Heading
+               title="Share some basics about your place"
+               subtitle="What amenities do you have?"
+            />
+            <Counter
+               onChange={(value) => setCustomValue("guestCount", value)}
+               title="Guests"
+               subTitle="How many guests do you allow?"
+               value={guestCount}
+            />
+            <hr />
+            <Counter
+               onChange={(value) => setCustomValue("roomCount", value)}
+               title="Rooms"
+               subTitle="How many rooms do you have?"
+               value={roomCount}
+            />
+            <hr />
+            <Counter
+               onChange={(value) => setCustomValue("bathroomCount", value)}
+               title="Bathrooms"
+               subTitle="How many bathrooms do you have?"
+               value={bathroomCount}
+            />
+         </div>
+      );
+   }
+
    return (
       <Modal
          isOpen={rentModal.isOpen}
