@@ -2,8 +2,8 @@
 
 import { signIn } from "next-auth/react";
 // import axios from "axios";
-import { AiFillGithub } from "react-icons/ai";
-import { FcGoogle } from "react-icons/fc";
+import { AiFillGithub } from "@react-icons/all-files/ai/AiFillGithub";
+import { FcGoogle } from "@react-icons/all-files/fc/FcGoogle";
 import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import useRegisterModal from "@/app/hooks/useRegisterModal";

@@ -1,7 +1,9 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
-import { IoMdClose, IoMdSend } from "react-icons/io";
-import { MdCancel } from "react-icons/md";
+import { IoMdClose } from "@react-icons/all-files/io/IoMdClose";
+import { IoMdSend } from "@react-icons/all-files/io/IoMdSend";
+
+import { MdCancel } from "@react-icons/all-files/md/MdCancel";
 import Button from "../Button";
 
 interface ModalProps {

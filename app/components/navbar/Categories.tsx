@@ -1,28 +1,28 @@
 "use client";
 
 import Container from "../Container";
-import { TbBeach, TbMountain, TbPool } from "react-icons/tb";
-import {
-   GiBarn,
-   GiBoatFishing,
-   GiCactus,
-   GiCastle,
-   GiCaveEntrance,
-   GiForestCamp,
-   GiIsland,
-   GiWindmill,
-} from "react-icons/gi";
-import { FaSkiing } from "react-icons/fa";
-import { IoDiamond } from "react-icons/io5";
-import { MdOutlineVilla } from "react-icons/md";
-import { BsSnow } from "react-icons/bs";
+import { FaUmbrellaBeach } from "@react-icons/all-files/fa/FaUmbrellaBeach";
+import { FaMountain } from "@react-icons/all-files/fa/FaMountain";
+import { FaSwimmingPool } from "@react-icons/all-files/fa/FaSwimmingPool";
+import { GiBarn } from "@react-icons/all-files/gi/GiBarn";
+import { GiBoatFishing } from "@react-icons/all-files/gi/GiBoatFishing";
+import { GiCactus } from "@react-icons/all-files/gi/GiCactus";
+import { GiCastle } from "@react-icons/all-files/gi/GiCastle";
+import { GiCaveEntrance } from "@react-icons/all-files/gi/GiCaveEntrance";
+import { GiForestCamp } from "@react-icons/all-files/gi/GiForestCamp";
+import { GiIsland } from "@react-icons/all-files/gi/GiIsland";
+import { GiWindmill } from "@react-icons/all-files/gi/GiWindmill";
+import { FaSkiing } from "@react-icons/all-files/fa/FaSkiing";
+import { GiCutDiamond } from "@react-icons/all-files/gi/GiCutDiamond";
+import { FaHome } from "@react-icons/all-files/fa/FaHome";
+import { FaSnowflake } from "@react-icons/all-files/fa/FaSnowflake";
 import CategoryBox from "../CategoryBox";
 import { usePathname, useSearchParams } from "next/navigation";
 
 export const categories = [
    {
       label: "Beach",
-      icon: TbBeach,
+      icon: FaUmbrellaBeach,
       description: "This property is close to the beach",
    },
    {
@@ -32,17 +32,17 @@ export const categories = [
    },
    {
       label: "Modern",
-      icon: MdOutlineVilla,
+      icon: FaHome,
       description: "This property is modern",
    },
    {
       label: "Countryside",
-      icon: TbMountain,
+      icon: FaMountain,
       description: "This property is mountain",
    },
    {
       label: "Pools",
-      icon: TbPool,
+      icon: FaSwimmingPool,
       description: "This property has a pool",
    },
    {
@@ -72,7 +72,7 @@ export const categories = [
    },
    {
       label: "Arctic",
-      icon: BsSnow,
+      icon: FaSnowflake,
       description: "This property is newar arctic",
    },
    {
@@ -92,7 +92,7 @@ export const categories = [
    },
    {
       label: "Lux",
-      icon: IoDiamond,
+      icon: GiCutDiamond,
       description: "This property is luxurious",
    },
 ];

@@ -1,6 +1,6 @@
 "use client";
 import { UseFormRegister, FieldValues, FieldErrors } from "react-hook-form";
-import { BiDollar } from "react-icons/bi";
+import { BiDollar } from "@react-icons/all-files/bi/BiDollar";
 
 interface InputProps {
    id: string;

@@ -1,5 +1,5 @@
 "use client";
-import { AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineMenu } from "@react-icons/all-files/ai/AiOutlineMenu";
 import Avatar from "../Avatar";
 import { useCallback, useState } from "react";
 import MenuItem from "./MenuItem";
