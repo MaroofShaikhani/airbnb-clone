@@ -1,3 +1,28 @@
+/**
+ * React functional component that renders a listing page.
+ *
+ * @component
+ * @example
+ * const listing = {
+ *   // listing data
+ * };
+ *
+ * const currentUser = {
+ *   // current user data
+ * };
+ *
+ * const reservations = [
+ *   // list of reservations
+ * ];
+ *
+ * <ListingClient listing={listing} currentUser={currentUser} reservations={reservations} />
+ *
+ * @param {Object} listing - An object containing the details of the listing.
+ * @param {Object} currentUser - An object representing the currently logged-in user.
+ * @param {Array} reservations - An array of objects representing existing reservations for the listing.
+ *
+ * @returns {JSX.Element} - The rendered listing page with the listing details, date range picker, and reservation button.
+ */
 "use client";
 import Container from "@/app/components/Container";
 import ListingHead from "@/app/components/listings/ListingHead";
@@ -27,7 +52,7 @@ interface ListingClientProps {
    currentUser?: SafeUser | null;
 }
 
-const ListingClient: React.FC<ListingClientProps> = ({
+const ListingClient: React.FunctionComponent<ListingClientProps> = ({
    listing,
    currentUser,
    reservations = [],
